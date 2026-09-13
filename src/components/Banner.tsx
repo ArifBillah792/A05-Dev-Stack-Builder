@@ -5,7 +5,7 @@ import BannerImage from "../assets/banner-stack.png"
 const Banner = () => {
   return (
 
-    <div className=" flex items-center justify-between px-8 py-16 gap-8 container mx-auto">
+    <div className=" flex flex-col md:flex-row items-center justify-between px-8 py-16 gap-8 container mx-auto">
       {/* Left: text block  */}
 
       <div className="flex flex-col gap-6 max-w-xl">
