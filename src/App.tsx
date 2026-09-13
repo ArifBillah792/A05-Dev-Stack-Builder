@@ -35,6 +35,12 @@ function App() {
     setStack([...stack, technology]);
   };
 
+  const removeFromStack = (name:string) => {
+    const updateStack = stack.filter((item) => item.name !== name );
+    setStack(updateStack); 
+    }
+  
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -69,7 +75,7 @@ function App() {
         </div>
 
         <div className="lg:col-span-1">
-          <YourStack stack={stack}/>
+          <YourStack stack={stack} onRemove={removeFromStack}/>
         </div>
       </div>
     </>
