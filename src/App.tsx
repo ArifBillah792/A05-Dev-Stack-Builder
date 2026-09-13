@@ -27,19 +27,22 @@ function App() {
     const isAlreadyAdded = stack.some((item) => item.name === technology.name);
 
     if (isAlreadyAdded) {
-      alert (`${technology.name} is already in your stack!`);
+      alert(`${technology.name} is already in your stack!`);
 
-      return ; 
+      return;
     }
 
     setStack([...stack, technology]);
   };
 
-  const removeFromStack = (name:string) => {
-    const updateStack = stack.filter((item) => item.name !== name );
-    setStack(updateStack); 
-    }
-  
+  const removeFromStack = (name: string) => {
+    const updateStack = stack.filter((item) => item.name !== name);
+    setStack(updateStack);
+  };
+
+  const removeAllStack = () => {
+    setStack([]);
+  };
 
   if (loading) {
     return <p>Loading...</p>;
@@ -70,12 +73,20 @@ function App() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 px-8 py-10">
         <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {technologies.map((tech) => (
-            <TechnologyCard key={tech.name} technology={tech} onAdd={addToStack} />
+            <TechnologyCard
+              key={tech.name}
+              technology={tech}
+              onAdd={addToStack}
+            />
           ))}
         </div>
 
         <div className="lg:col-span-1">
-          <YourStack stack={stack} onRemove={removeFromStack}/>
+          <YourStack
+            stack={stack}
+            onRemove={removeFromStack}
+            onRemoveAll={removeAllStack}
+          />
         </div>
       </div>
     </>
