@@ -20,7 +20,7 @@ const TechnologyCard = ({
   isAdded: boolean;
 }) => {
   return (
-    <div className="border border-gray-200 rounded-2xl p-6 bg-white flex flex-col gap-4">
+    <div className="border border-gray-200 rounded-2xl p-6 bg-white flex flex-col gap-4 h-full">
       {/* Icon + badge row */}
 
       <div className="flex items-center justify-between">
@@ -56,7 +56,7 @@ const TechnologyCard = ({
       {/* Button */}
 
       <button
-        className="btn btn-neutral w-full rounded-xl "
+        className="btn btn-neutral w-full rounded-xl mt-auto "
         onClick={() => onAdd(technology)}
         disabled={isAdded}
       >
