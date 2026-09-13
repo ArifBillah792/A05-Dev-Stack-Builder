@@ -6,7 +6,7 @@ const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full flex items-center justify-between px-8 py-4 bg-white border-b border-[#f1f5f9]">
+    <nav className="relative sticky top-0 z-50 w-full flex items-center justify-between px-8 py-4 bg-white border-b border-[#f1f5f9]">
       <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
         <img src={hamburgerIcon} alt="Menu" className="h-6 w-6" />
       </button>
@@ -36,7 +36,9 @@ const Nav = () => {
       </ul>
 
       <div className="flex gap-2 items-center font-sans font-bold">
-        <button className="btn btn-ghost btn-md">Sign in</button>
+        <button className="btn btn-ghost btn-md hidden md:inline-flex">
+          Sign in
+        </button>
         <button className="btn btn-active btn-secondary rounded-full">
           Sign Up
         </button>
@@ -67,6 +69,11 @@ const Nav = () => {
           <li>
             <a href="#contact" onClick={() => setMenuOpen(false)}>
               Contact
+            </a>
+          </li>
+          <li>
+            <a href="#signin" onClick={() => setMenuOpen(false)}>
+              Sign in
             </a>
           </li>
         </ul>
