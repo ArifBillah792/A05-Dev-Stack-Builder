@@ -6,7 +6,7 @@ const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="relative w-full flex items-center justify-between px-8 py-4 bg-white border-b border-[#f1f5f9]">
+    <nav className="sticky top-0 z-50 w-full flex items-center justify-between px-8 py-4 bg-white border-b border-[#f1f5f9]">
       <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
         <img src={hamburgerIcon} alt="Menu" className="h-6 w-6" />
       </button>
