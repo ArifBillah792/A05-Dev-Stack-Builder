@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export interface Technology {
   name: string;
@@ -10,7 +10,15 @@ export interface Technology {
   badge: string;
 }
 
-const TechnologyCard = ({ technology, onAdd }: { technology: Technology ; onAdd:(technology:Technology) => void }) => {
+const TechnologyCard = ({
+  technology,
+  onAdd,
+  isAdded,
+}: {
+  technology: Technology;
+  onAdd: (technology: Technology) => void;
+  isAdded: boolean;
+}) => {
   return (
     <div className="border border-gray-200 rounded-2xl p-6 bg-white flex flex-col gap-4">
       {/* Icon + badge row */}
@@ -47,8 +55,12 @@ const TechnologyCard = ({ technology, onAdd }: { technology: Technology ; onAdd:
 
       {/* Button */}
 
-      <button className="btn btn-neutral w-full rounded-xl " onClick={() => onAdd(technology)}>
-        Add to Stack
+      <button
+        className="btn btn-neutral w-full rounded-xl "
+        onClick={() => onAdd(technology)}
+        disabled={isAdded}
+      >
+        {isAdded ? "✓ Added to Stack" : "Add to Stack"}
       </button>
     </div>
   );

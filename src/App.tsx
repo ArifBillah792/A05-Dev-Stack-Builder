@@ -72,13 +72,18 @@ function App() {
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 px-8 py-10">
         <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {technologies.map((tech) => (
-            <TechnologyCard
-              key={tech.name}
-              technology={tech}
-              onAdd={addToStack}
-            />
-          ))}
+          {technologies.map((tech) => {
+            const isAdded = stack.some((item) => item.name === tech.name);
+
+            return (
+              <TechnologyCard
+                key={tech.name}
+                technology={tech}
+                onAdd={addToStack}
+                isAdded={isAdded}
+              />
+            );
+          })}
         </div>
 
         <div className="lg:col-span-1">

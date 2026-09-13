@@ -3,11 +3,11 @@ import { type Technology } from "./TechnologyCard";
 const YourStack = ({
   stack,
   onRemove,
-  onRemoveAll
+  onRemoveAll,
 }: {
   stack: Technology[];
   onRemove: (name: string) => void;
-  onRemoveAll: () => void ;
+  onRemoveAll: () => void;
 }) => {
   return (
     <div className="border border-gray-200 rounded-2xl p-5 flex flex-col gap-3">
@@ -28,7 +28,12 @@ const YourStack = ({
         ))
       )}
 
-      <button className="btn btn-outline btn-error w-full" onClick={onRemoveAll}>Remove All</button>
+      <button
+        className="btn btn-outline btn-error w-full"
+        onClick={onRemoveAll}
+      >
+        Remove All
+      </button>
     </div>
   );
 };
