@@ -3,6 +3,8 @@ import Banner from "./components/Banner";
 import TechnologyCard, { type Technology } from "./components/TechnologyCard";
 import YourStack from "./components/YourStack";
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
@@ -27,21 +29,24 @@ function App() {
     const isAlreadyAdded = stack.some((item) => item.name === technology.name);
 
     if (isAlreadyAdded) {
-      alert(`${technology.name} is already in your stack!`);
+      toast.info(`${technology.name} is already in your stack!`);
 
       return;
     }
 
     setStack([...stack, technology]);
+    toast.success(`${technology.name} added to your stack!`);
   };
 
   const removeFromStack = (name: string) => {
     const updateStack = stack.filter((item) => item.name !== name);
     setStack(updateStack);
+    toast.info(`${name} removed from your stack.`);
   };
 
   const removeAllStack = () => {
     setStack([]);
+    toast.info(`All technologies removed from your stack.`);
   };
 
   if (loading) {
@@ -50,6 +55,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       <Nav />
       <Banner />
 
